@@ -193,7 +193,6 @@ public class Executor {
         }
 
         channel.intrude(intruder);
-        Configuration.instance.textAreaLogger.info(String.format("Channel %s got intruded by %s", channelName, participant));
     }
 
     public void sendMessage(String message, String sender, String recipient, AlgorithmType algorithmType, String keyfile){

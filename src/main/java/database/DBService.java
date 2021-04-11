@@ -98,7 +98,7 @@ public enum DBService implements IDBService {
 
     @Override
     public void insertParticipant(Participant participant) {
-        insertParticipant(participant.getName(), participant.getType());
+        insertParticipant(participant.getName(), participant.getType().toString());
     }
 
     @Override

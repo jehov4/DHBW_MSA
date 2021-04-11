@@ -31,8 +31,8 @@ public class Participant {
         return name;
     }
 
-    public String getType() {
-        return type.toString();
+    public ParticipantType getType() {
+        return type;
     }
 
     public void receiveMessageIntruder(BusMessage message) {

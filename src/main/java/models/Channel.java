@@ -4,6 +4,7 @@ package models;
 import com.google.common.eventbus.EventBus;
 import configuration.Configuration;
 import database.DBService;
+import models.enums.ParticipantType;
 
 public class Channel {
 
@@ -40,8 +41,14 @@ public class Channel {
     }
 
     public void intrude(Participant intruder){
-        eventBus.register(intruder);
-        Configuration.instance.intrudedChannels.put(this.name, intruder.getName());
+        if (intruder.getType().equals(ParticipantType.INTRUDER)){
+            eventBus.register(intruder);
+            Configuration.instance.intrudedChannels.put(this.name, intruder.getName());
+            Configuration.instance.textAreaLogger.info(String.format("Channel %s got intruded by %s", name, intruder.getName()));
+        } else {
+            Configuration.instance.textAreaLogger.info("Intruder should be of type intruder");
+        }
+
     }
 
 }
